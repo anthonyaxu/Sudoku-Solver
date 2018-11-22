@@ -54,7 +54,7 @@ bool checkCol(int puzzle[N][N], int digit, int col) {
 // Returns false if the digit is already in the 3x3 box
 bool checkBox(int puzzle[N][N], int digit, int row, int col) {
 	int startRow, startCol, difference;
-	difference = row % 3;
+	difference = row % 3; 
 	startRow = row - difference;
 
 	difference = col % 3;
