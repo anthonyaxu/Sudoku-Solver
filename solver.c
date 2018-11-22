@@ -31,7 +31,7 @@ Coordinates newCoordinates() {
 	coord->row = coord->col = -1;
 	return coord;
 }
- 
+
 // Checks the entire row to check if the given digit is allowed
 // Returns false if the digit is already in the row
 bool checkRow(int puzzle[N][N], int digit, int row) {
@@ -111,6 +111,7 @@ void printPuzzle(int puzzle[N][N]) {
 	printf("+-----+-----+-----+\n");
 }
 
+// Recursive function to solve the Sudoku puzzle
 bool solve(int puzzle[N][N]) {
 	// Checks and returns the row and column of the first 'unsolved' entry
 	Coordinates coord = checkCompletion(puzzle);
