@@ -31,7 +31,7 @@ Coordinates newCoordinates() {
 	coord->row = coord->col = -1;
 	return coord;
 }
-
+ 
 // Checks the entire row to check if the given digit is allowed
 // Returns false if the digit is already in the row
 bool checkRow(int puzzle[N][N], int digit, int row) {
