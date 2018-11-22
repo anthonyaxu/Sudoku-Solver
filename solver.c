@@ -7,7 +7,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <assert.h>
 #include <stdbool.h>
 
 //Define N as the size of the grid
@@ -86,7 +85,7 @@ Coordinates checkCompletion(int puzzle[N][N]) {
 }
 
 // Checks if the given digit is allowed to be placed in the row and column
-bool checkSolved(int puzzle[N][N], int digit, int row, int col) {
+bool checkAllowed(int puzzle[N][N], int digit, int row, int col) {
 	if (checkRow(puzzle, digit, row) && checkCol(puzzle, digit, col) 
 		&& checkBox(puzzle, digit, row, col) && puzzle[row][col] == UNSOLVED) return true;
 	return false;
@@ -123,7 +122,7 @@ bool solve(int puzzle[N][N]) {
 	for (int digit = 1; digit <= 9; digit++) {
 		if (puzzle[row][col] == UNSOLVED) {
 			// Check if digit is allowed to be placed in the row and column
-			if (checkSolved(puzzle, digit, row, col)) {
+			if (checkAllowed(puzzle, digit, row, col)) {
 				puzzle[row][col] = digit;
 				// Moves down to the next 'unsolved' entry
 				if (solve(puzzle)) return true;
@@ -157,6 +156,7 @@ int main(int argc, char *argv[]) {
 	// Read all the numbers from input file to puzzle array
 	while ((c = fgetc(f)) != EOF) {
 		if (c != ' ' && c != '\n') {
+			// Convert char to int
 			num = c - '0';
 			if (col == 9) {
 				row++;
