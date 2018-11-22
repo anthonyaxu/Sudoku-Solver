@@ -167,6 +167,7 @@ int main(int argc, char *argv[]) {
 			col++;
 		}
 	}
+	fclose(f);
 
 	// Solve the sudoku, prints the grid when completed
 	if (solve(puzzle)) {
